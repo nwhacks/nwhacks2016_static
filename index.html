@@ -1,5 +1,13 @@
 <!DOCTYPE html><html><head><script src="index.js" defer=""></script><!--
 @license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><!--
+@license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
@@ -8,7 +16,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 --><!--
 @license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
@@ -16,7 +24,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 --><!--
 @license
-Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
@@ -478,14 +486,34 @@ lazy-pages, lazy-pages > * {
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   </head>
-  <body><div hidden="" by-vulcanize=""><style>
+  <body><div hidden="" by-vulcanize="">
+
+<dom-module id="iron-form" assetpath="/bower_components/iron-form/">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    
+    <slot></slot>
+
+    
+    <form id="helper" action$="[[action]]" method$="[[method]]" enctype$="[[enctype]]"></form>
+  </template>
+
+  </dom-module>
+
+
+
+
+<style>
   /* IE 10 support for HTML5 hidden attr */
   [hidden] {
     display: none !important;
   }
-</style>
-
-<style is="custom-style">
+</style><style is="custom-style">
   :root {
 
     --layout: {
@@ -536,6 +564,12 @@ lazy-pages, lazy-pages > * {
       -ms-flex-wrap: wrap;
       -webkit-flex-wrap: wrap;
       flex-wrap: wrap;
+    };
+
+    --layout-no-wrap: {
+      -ms-flex-wrap: nowrap;
+      -webkit-flex-wrap: nowrap;
+      flex-wrap: nowrap;
     };
 
     --layout-wrap-reverse: {
@@ -828,10 +862,7 @@ lazy-pages, lazy-pages > * {
 
   }
 
-</style>
-
-
-<dom-module id="iron-icon" assetpath="/bower_components/iron-icon/">
+</style><dom-module id="iron-icon" assetpath="/bower_components/iron-icon/">
   <template>
     <style>
       :host {
@@ -867,6 +898,7 @@ lazy-pages, lazy-pages > * {
 <g id="directions-transit"><path d="M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z"></path></g>
 <g id="directions-walk"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"></path></g>
 <g id="edit-location"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm-1.56 10H9v-1.44l3.35-3.34 1.43 1.43L10.44 12zm4.45-4.45l-.7.7-1.44-1.44.7-.7c.15-.15.39-.15.54 0l.9.9c.15.15.15.39 0 .54z"></path></g>
+<g id="ev-station"><path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM8 18v-4.5H6L10 6v5h2l-4 7z"></path></g>
 <g id="flight"><path d="M10.18 9"></path><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path></g>
 <g id="hotel"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"></path></g>
 <g id="layers"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"></path></g>
@@ -909,11 +941,17 @@ lazy-pages, lazy-pages > * {
 <g id="pin-drop"><path d="M18 8c0-3.31-2.69-6-6-6S6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11zm-8 0c0-1.1.9-2 2-2s2 .9 2 2-.89 2-2 2c-1.1 0-2-.9-2-2zM5 20v2h14v-2H5z"></path></g>
 <g id="place"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></g>
 <g id="rate-review"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 14v-2.47l6.88-6.88c.2-.2.51-.2.71 0l1.77 1.77c.2.2.2.51 0 .71L8.47 14H6zm12 0h-7.5l2-2H18v2z"></path></g>
+<g id="restaurant"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"></path></g>
 <g id="restaurant-menu"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"></path></g>
 <g id="satellite"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.99h3C8 6.65 6.66 8 5 8V4.99zM5 12v-2c2.76 0 5-2.25 5-5.01h2C12 8.86 8.87 12 5 12zm0 6l3.5-4.5 2.5 3.01L14.5 12l4.5 6H5z"></path></g>
 <g id="store-mall-directory"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"></path></g>
+<g id="streetview"><path d="M12.56 14.33c-.34.27-.56.7-.56 1.17V21h7c1.1 0 2-.9 2-2v-5.98c-.94-.33-1.95-.52-3-.52-2.03 0-3.93.7-5.44 1.83z"></path><circle cx="18" cy="6" r="5"></circle><path d="M11.5 6c0-1.08.27-2.1.74-3H5c-1.1 0-2 .9-2 2v14c0 .55.23 1.05.59 1.41l9.82-9.82C12.23 9.42 11.5 7.8 11.5 6z"></path></g>
+<g id="subway"><circle cx="15.5" cy="16" r="1"></circle><circle cx="8.5" cy="16" r="1"></circle><path d="M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z"></path></g>
 <g id="terrain"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"></path></g>
 <g id="traffic"><path d="M20 10h-3V8.86c1.72-.45 3-2 3-3.86h-3V4c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v1H4c0 1.86 1.28 3.41 3 3.86V10H4c0 1.86 1.28 3.41 3 3.86V15H4c0 1.86 1.28 3.41 3 3.86V20c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.14c1.72-.45 3-2 3-3.86h-3v-1.14c1.72-.45 3-2 3-3.86zm-8 9c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2 0-1.11.89-2 2-2 1.1 0 2 .89 2 2 0 1.1-.89 2-2 2z"></path></g>
+<g id="train"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path></g>
+<g id="tram"><path d="M19 16.94V8.5c0-2.79-2.61-3.4-6.01-3.49l.76-1.51H17V2H7v1.5h4.75l-.76 1.52C7.86 5.11 5 5.73 5 8.5v8.44c0 1.45 1.19 2.66 2.59 2.97L6 21.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 20h-.08c1.69 0 2.58-1.37 2.58-3.06zm-7 1.56c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4.5H7V9h10v5z"></path></g>
+<g id="transfer-within-a-station"><path d="M16.49 15.5v-1.75L14 16.25l2.49 2.5V17H22v-1.5zm3.02 4.25H14v1.5h5.51V23L22 20.5 19.51 18zM9.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5.75 8.9L3 23h2.1l1.75-8L9 17v6h2v-7.55L8.95 13.4l.6-3C10.85 12 12.8 13 15 13v-2c-1.85 0-3.45-1-4.35-2.45l-.95-1.6C9.35 6.35 8.7 6 8 6c-.25 0-.5.05-.75.15L2 8.3V13h2V9.65l1.75-.75"></path></g>
 <g id="zoom-out-map"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z"></path></g>
 </defs></svg>
 </iron-iconset-svg>
@@ -938,6 +976,7 @@ lazy-pages, lazy-pages > * {
 <g id="brightness-7"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></g>
 <g id="broken-image"><path d="M21 5v6.59l-3-3.01-4 4.01-4-4-4 4-3-3.01V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2zm-3 6.42l3 3.01V19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-6.58l3 2.99 4-4 4 4 4-3.99z"></path></g>
 <g id="brush"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"></path></g>
+<g id="burst-mode"><path d="M1 5h2v14H1zm4 0h2v14H5zm17 0H10c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM11 17l2.5-3.15L15.29 16l2.5-3.22L21 17H11z"></path></g>
 <g id="camera"><path d="M9.4 10.5l4.77-8.26C13.47 2.09 12.75 2 12 2c-2.4 0-4.6.85-6.32 2.25l3.66 6.35.06-.1zM21.54 9c-.92-2.92-3.15-5.26-6-6.34L11.88 9h9.66zm.26 1h-7.49l.29.5 4.76 8.25C21 16.97 22 14.61 22 12c0-.69-.07-1.35-.2-2zM8.54 12l-3.9-6.75C3.01 7.03 2 9.39 2 12c0 .69.07 1.35.2 2h7.49l-1.15-2zm-6.08 3c.92 2.92 3.15 5.26 6 6.34L12.12 15H2.46zm11.27 0l-3.9 6.76c.7.15 1.42.24 2.17.24 2.4 0 4.6-.85 6.32-2.25l-3.66-6.35-.93 1.6z"></path></g>
 <g id="camera-alt"><circle cx="12" cy="12" r="3.2"></circle><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path></g>
 <g id="camera-front"><path d="M10 20H5v2h5v2l3-3-3-3v2zm4 0v2h5v-2h-5zM12 8c1.1 0 2-.9 2-2s-.9-2-2-2-1.99.9-1.99 2S10.9 8 12 8zm5-8H7C5.9 0 5 .9 5 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM7 2h10v10.5c0-1.67-3.33-2.5-5-2.5s-5 .83-5 2.5V2z"></path></g>
@@ -1024,7 +1063,7 @@ lazy-pages, lazy-pages > * {
 <g id="loupe"><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10h8c1.1 0 2-.9 2-2v-8c0-5.51-4.49-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
 <g id="monochrome-photos"><path d="M20 5h-3.2L15 3H9L7.2 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14h-8v-1c-2.8 0-5-2.2-5-5s2.2-5 5-5V7h8v12zm-3-6c0-2.8-2.2-5-5-5v1.8c1.8 0 3.2 1.4 3.2 3.2s-1.4 3.2-3.2 3.2V18c2.8 0 5-2.2 5-5zm-8.2 0c0 1.8 1.4 3.2 3.2 3.2V9.8c-1.8 0-3.2 1.4-3.2 3.2z"></path></g>
 <g id="movie-creation"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"></path></g>
-<g id="movie-filter"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4zm-6.58 11.68L10.37 18l-1.05-2.32L7 14.63l2.32-1.05 1.05-2.32 1.05 2.32 2.32 1.05-2.32 1.05zm3.69-3.47l-.53 1.16-.53-1.16-1.16-.53 1.16-.53.53-1.15.53 1.16 1.16.53-1.16.52z"></path></g>
+<g id="movie-filter"><path d="M18 4l2 3h-3l-2-3h-2l2 3h-3l-2-3H8l2 3H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4zm-6.75 11.25L10 18l-1.25-2.75L6 14l2.75-1.25L10 10l1.25 2.75L14 14l-2.75 1.25zm5.69-3.31L16 14l-.94-2.06L13 11l2.06-.94L16 8l.94 2.06L19 11l-2.06.94z"></path></g>
 <g id="music-note"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path></g>
 <g id="nature"><path d="M13 16.12c3.47-.41 6.17-3.36 6.17-6.95 0-3.87-3.13-7-7-7s-7 3.13-7 7c0 3.47 2.52 6.34 5.83 6.89V20H5v2h14v-2h-6v-3.88z"></path></g>
 <g id="nature-people"><path d="M22.17 9.17c0-3.87-3.13-7-7-7s-7 3.13-7 7c0 3.47 2.52 6.34 5.83 6.89V20H6v-3h1v-4c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v4h1v5h16v-2h-3v-3.88c3.47-.41 6.17-3.36 6.17-6.95zM4.5 11c.83 0 1.5-.67 1.5-1.5S5.33 8 4.5 8 3 8.67 3 9.5 3.67 11 4.5 11z"></path></g>
@@ -1039,7 +1078,7 @@ lazy-pages, lazy-pages > * {
 <g id="photo"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path></g>
 <g id="photo-album"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm0 15l3-3.86 2.14 2.58 3-3.86L18 19H6z"></path></g>
 <g id="photo-camera"><circle cx="12" cy="12" r="3.2"></circle><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path></g>
-<g id="photo-filter"><path d="M17.13 8.9l.59-1.3 1.3-.6-1.3-.59-.59-1.3-.59 1.3-1.31.59 1.31.6zm-4.74-2.37l-1.18 2.61-2.61 1.18 2.61 1.18 1.18 2.61 1.19-2.61 2.6-1.18-2.6-1.18zM19.02 10v9H5V5h9V3H5.02c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2z"></path></g>
+<g id="photo-filter"><path d="M19.02 10v9H5V5h9V3H5.02c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2zM17 10l.94-2.06L20 7l-2.06-.94L17 4l-.94 2.06L14 7l2.06.94zm-3.75.75L12 8l-1.25 2.75L8 12l2.75 1.25L12 16l1.25-2.75L16 12z"></path></g>
 <g id="photo-library"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"></path></g>
 <g id="photo-size-select-actual"><path d="M21 3H3C2 3 1 4 1 5v14c0 1.1.9 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zM5 17l3.5-4.5 2.5 3.01L14.5 11l4.5 6H5z"></path></g>
 <g id="photo-size-select-large"><path d="M21 15h2v2h-2v-2zm0-4h2v2h-2v-2zm2 8h-2v2c1 0 2-1 2-2zM13 3h2v2h-2V3zm8 4h2v2h-2V7zm0-4v2h2c0-1-1-2-2-2zM1 7h2v2H1V7zm16-4h2v2h-2V3zm0 16h2v2h-2v-2zM3 3C2 3 1 4 1 5h2V3zm6 0h2v2H9V3zM5 3h2v2H5V3zm-4 8v8c0 1.1.9 2 2 2h12V11H1zm2 8l2.5-3.21 1.79 2.15 2.5-3.22L13 19H3z"></path></g>
@@ -1086,8 +1125,16 @@ lazy-pages, lazy-pages > * {
         position: relative;
       }
 
+      #baseURIAnchor {
+        display: none;
+      }
+
       #sizedImgDiv {
-        @apply(--layout-fit);
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
 
         display: none;
       }
@@ -1107,12 +1154,16 @@ lazy-pages, lazy-pages > * {
       }
 
       #placeholder {
-        @apply(--layout-fit);
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
 
         background-color: inherit;
         opacity: 1;
 
-        @apply(--iron-image-placeholder);
+        @apply --iron-image-placeholder;
       }
 
       #placeholder.faded-out {
@@ -1121,12 +1172,15 @@ lazy-pages, lazy-pages > * {
       }
     </style>
 
+    <a id="baseURIAnchor" href="#"></a>
     <div id="sizedImgDiv" role="img" hidden$="[[_computeImgDivHidden(sizing)]]" aria-hidden$="[[_computeImgDivARIAHidden(alt)]]" aria-label$="[[_computeImgDivARIALabel(alt, src)]]"></div>
-    <img id="img" alt$="[[alt]]" hidden$="[[_computeImgHidden(sizing)]]">
+    <img id="img" alt$="[[alt]]" hidden$="[[_computeImgHidden(sizing)]]" crossorigin$="[[crossorigin]]" on-load="_imgOnLoad" on-error="_imgOnError">
     <div id="placeholder" hidden$="[[_computePlaceholderHidden(preload, fade, loading, loaded)]]" class$="[[_computePlaceholderClassName(preload, fade, loading, loaded)]]"></div>
   </template>
 
   </dom-module>
+
+
 <dom-module id="iron-list" assetpath="/bower_components/iron-list/">
   <template>
     <style>
@@ -1335,8 +1389,7 @@ lazy-pages, lazy-pages > * {
     };
   }
 
-</style>
-<dom-module id="paper-material-shared-styles" assetpath="/bower_components/paper-material/">
+</style><dom-module id="paper-material-shared-styles" assetpath="/bower_components/paper-material/">
   <template>
     <style>
       :host {
@@ -1366,8 +1419,6 @@ lazy-pages, lazy-pages > * {
     </style>
   </template>
 </dom-module>
-
-
 <dom-module id="paper-button" assetpath="/bower_components/paper-button/">
   <template strip-whitespace="">
     <style include="paper-material-shared-styles">
@@ -1435,18 +1486,55 @@ lazy-pages, lazy-pages > * {
   </dom-module>
 
 
-<dom-module id="paper-material" assetpath="/bower_components/paper-material/">
+
+
+<dom-module id="paper-material-styles" assetpath="/bower_components/paper-styles/element-styles/">
   <template>
-    <style include="paper-material-shared-styles"></style>
     <style>
-      :host([animated]) {
-        @apply(--shadow-transition);
+      :host, html {
+        --paper-material: {
+          display: block;
+          position: relative;
+        };
+        --paper-material-elevation-1: {
+          @apply --shadow-elevation-2dp;
+        };
+        --paper-material-elevation-2: {
+          @apply --shadow-elevation-4dp;
+        };
+        --paper-material-elevation-3: {
+          @apply --shadow-elevation-6dp;
+        };
+        --paper-material-elevation-4: {
+          @apply --shadow-elevation-8dp;
+        };
+        --paper-material-elevation-5: {
+          @apply --shadow-elevation-16dp;
+        };
+      }
+      :host(.paper-material), .paper-material {
+        @apply --paper-material;
+      }
+      :host(.paper-material[elevation="1"]), .paper-material[elevation="1"] {
+        @apply --paper-material-elevation-1;
+      }
+      :host(.paper-material[elevation="2"]), .paper-material[elevation="2"] {
+        @apply --paper-material-elevation-2;
+      }
+      :host(.paper-material[elevation="3"]), .paper-material[elevation="3"] {
+        @apply --paper-material-elevation-3;
+      }
+      :host(.paper-material[elevation="4"]), .paper-material[elevation="4"] {
+        @apply --paper-material-elevation-4;
+      }
+      :host(.paper-material[elevation="5"]), .paper-material[elevation="5"] {
+        @apply --paper-material-elevation-5;
       }
     </style>
-
-    <content></content>
   </template>
 </dom-module>
+
+
 <style is="custom-style">
 
   :root {
@@ -1767,10 +1855,7 @@ lazy-pages, lazy-pages > * {
 
   }
 
-</style>
-
-
-<style is="custom-style">
+</style><style is="custom-style">
 
   :root {
     /*
@@ -1826,21 +1911,18 @@ lazy-pages, lazy-pages > * {
 
   }
 
-</style>
-
-
-<dom-module id="paper-card" assetpath="/bower_components/paper-card/">
+</style><dom-module id="paper-card" assetpath="/bower_components/paper-card/">
   <template>
-    <style include="paper-material">
+    <style include="paper-material-styles">
       :host {
         display: inline-block;
         position: relative;
         box-sizing: border-box;
-        background-color: var(--paper-card-background-color, --primary-background-color);
+        background-color: var(--paper-card-background-color, var(--primary-background-color));
         border-radius: 2px;
 
-        @apply(--paper-font-common-base);
-        @apply(--paper-card);
+        @apply --paper-font-common-base;
+        @apply --paper-card;
       }
 
       /* IE 10 support for HTML5 hidden attr */
@@ -1854,7 +1936,7 @@ lazy-pages, lazy-pages > * {
         border-top-right-radius: inherit;
         overflow: hidden;
 
-        @apply(--paper-card-header);
+        @apply --paper-card-header;
       }
 
       .header iron-image {
@@ -1863,7 +1945,7 @@ lazy-pages, lazy-pages > * {
         --iron-image-width: 100%;
         pointer-events: none;
 
-        @apply(--paper-card-header-image);
+        @apply --paper-card-header-image;
       }
 
       .header .title-text {
@@ -1872,29 +1954,49 @@ lazy-pages, lazy-pages > * {
         font-weight: 400;
         color: var(--paper-card-header-color, #000);
 
-        @apply(--paper-card-header-text);
+        @apply --paper-card-header-text;
       }
 
       .header .title-text.over-image {
         position: absolute;
         bottom: 0px;
 
-        @apply(--paper-card-header-image-text);
+        @apply --paper-card-header-image-text;
       }
 
-      :host ::content .card-content {
+      :host ::slotted(.card-content) {
         padding: 16px;
         position:relative;
 
-        @apply(--paper-card-content);
+        @apply --paper-card-content;
       }
 
-      :host ::content .card-actions {
+      :host ::slotted(.card-actions) {
         border-top: 1px solid #e8e8e8;
         padding: 5px 16px;
         position:relative;
 
-        @apply(--paper-card-actions);
+        @apply --paper-card-actions;
+      }
+
+      :host([elevation="1"]) {
+        @apply --paper-material-elevation-1;
+      }
+
+      :host([elevation="2"]) {
+        @apply --paper-material-elevation-2;
+      }
+
+      :host([elevation="3"]) {
+        @apply --paper-material-elevation-3;
+      }
+
+      :host([elevation="4"]) {
+        @apply --paper-material-elevation-4;
+      }
+
+      :host([elevation="5"]) {
+        @apply --paper-material-elevation-5;
       }
     </style>
 
@@ -1903,10 +2005,12 @@ lazy-pages, lazy-pages > * {
       <div hidden$="[[!heading]]" class$="title-text [[_computeHeadingClass(image)]]">[[heading]]</div>
     </div>
 
-    <content></content>
+    <slot></slot>
   </template>
 
   </dom-module>
+
+
 <dom-module id="paper-checkbox" assetpath="/bower_components/paper-checkbox/">
   <template strip-whitespace="">
     <style>
@@ -1917,7 +2021,7 @@ lazy-pages, lazy-pages > * {
         --calculated-paper-checkbox-size: var(--paper-checkbox-size, 18px);
         /* -1px is a sentinel for the default and is replaced in `attached`. */
         --calculated-paper-checkbox-ink-size: var(--paper-checkbox-ink-size, -1px);
-        @apply(--paper-font-common-base);
+        @apply --paper-font-common-base;
         line-height: 0;
         -webkit-tap-highlight-color: transparent;
       }
@@ -2038,12 +2142,12 @@ lazy-pages, lazy-pages > * {
         white-space: normal;
         line-height: normal;
         color: var(--paper-checkbox-label-color, var(--primary-text-color));
-        @apply(--paper-checkbox-label);
+        @apply --paper-checkbox-label;
       }
 
       :host([checked]) #checkboxLabel {
         color: var(--paper-checkbox-label-checked-color, var(--paper-checkbox-label-color, var(--primary-text-color)));
-        @apply(--paper-checkbox-label-checked);
+        @apply --paper-checkbox-label-checked;
       }
 
       :host-context([dir="rtl"]) #checkboxLabel {
@@ -2083,10 +2187,12 @@ lazy-pages, lazy-pages > * {
       </div>
     </div>
 
-    <div id="checkboxLabel"><content></content></div>
+    <div id="checkboxLabel"><slot></slot></div>
   </template>
 
   </dom-module>
+
+
 <dom-module id="iron-overlay-backdrop" assetpath="/bower_components/iron-overlay-behavior/">
 
   <template>
@@ -2101,23 +2207,22 @@ lazy-pages, lazy-pages > * {
         opacity: 0;
         transition: opacity 0.2s;
         pointer-events: none;
-        @apply(--iron-overlay-backdrop);
+        @apply --iron-overlay-backdrop;
       }
 
       :host(.opened) {
         opacity: var(--iron-overlay-backdrop-opacity, 0.6);
         pointer-events: auto;
-        @apply(--iron-overlay-backdrop-opened);
+        @apply --iron-overlay-backdrop-opened;
       }
     </style>
 
-    <content></content>
+    <slot></slot>
   </template>
 
 </dom-module>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,300,300italic,400italic,500,500italic,700,700italic" crossorigin="anonymous">
 <style is="custom-style">
 
   :root {
@@ -2273,68 +2378,66 @@ lazy-pages, lazy-pages > * {
 
   }
 
-</style>
-
-
-<dom-module id="paper-dialog-shared-styles" assetpath="/bower_components/paper-dialog-behavior/">
+</style><dom-module id="paper-dialog-shared-styles" assetpath="/bower_components/paper-dialog-behavior/">
   <template>
     <style>
       :host {
         display: block;
         margin: 24px 40px;
 
-        background: var(--paper-dialog-background-color, --primary-background-color);
-        color: var(--paper-dialog-color, --primary-text-color);
+        background: var(--paper-dialog-background-color, var(--primary-background-color));
+        color: var(--paper-dialog-color, var(--primary-text-color));
 
-        @apply(--paper-font-body1);
-        @apply(--shadow-elevation-16dp);
-        @apply(--paper-dialog);
+        @apply --paper-font-body1;
+        @apply --shadow-elevation-16dp;
+        @apply --paper-dialog;
       }
 
-      :host > ::content > * {
+      :host > ::slotted(*) {
         margin-top: 20px;
         padding: 0 24px;
       }
 
-      :host > ::content > .no-padding {
+      :host > ::slotted(.no-padding) {
         padding: 0;
       }
 
-      :host > ::content > *:first-child {
+      /* In 1.x, this selector was `:host > ::content h2`. In 2.x <slot> allows
+      to only select only direct children, which increases the weight of this
+      selector, so we have to move it before first-child/last-child selectors */
+      :host > ::slotted(h2) {
+        position: relative;
+        margin: 0;
+        @apply --paper-font-title;
+
+        @apply --paper-dialog-title;
+      }
+
+      :host > ::slotted(*:first-child) {
         margin-top: 24px;
       }
 
-      :host > ::content > *:last-child {
+      :host > ::slotted(*:last-child) {
         margin-bottom: 24px;
       }
 
-      :host > ::content h2 {
-        position: relative;
-        margin: 0;
-        @apply(--paper-font-title);
-
-        @apply(--paper-dialog-title);
-      }
-
-      :host > ::content .buttons {
+      :host > ::slotted(.buttons) {
         position: relative;
         padding: 8px 8px 8px 24px;
         margin: 0;
 
-        color: var(--paper-dialog-button-color, --primary-color);
+        color: var(--paper-dialog-button-color, var(--primary-color));
 
-        @apply(--layout-horizontal);
-        @apply(--layout-end-justified);
+        @apply --layout-horizontal;
+        @apply --layout-end-justified;
       }
     </style>
   </template>
 </dom-module>
-
-
 <dom-module id="paper-dialog" assetpath="/bower_components/paper-dialog/">
   <template>
     <style include="paper-dialog-shared-styles"></style>
-    <content></content>
+    <slot></slot>
   </template>
 </dom-module>
 
@@ -2351,6 +2454,16 @@ lazy-pages, lazy-pages > * {
   </template>
 
   </dom-module>
+<dom-module id="iron-input" assetpath="/bower_components/iron-input/">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
+    <slot id="content"></slot>
+  </template>
+  </dom-module>
 <dom-module id="paper-input-char-counter" assetpath="/bower_components/paper-input/">
   <template>
     <style>
@@ -2358,14 +2471,15 @@ lazy-pages, lazy-pages > * {
         display: inline-block;
         float: right;
 
-        @apply(--paper-font-caption);
-        @apply(--paper-input-char-counter);
+        @apply --paper-font-caption;
+        @apply --paper-input-char-counter;
       }
 
       :host([hidden]) {
         display: none !important;
       }
 
+      :host(:dir(rtl)),
       :host-context([dir="rtl"]) {
         float: left;
       }
@@ -2381,8 +2495,26 @@ lazy-pages, lazy-pages > * {
       :host {
         display: block;
         padding: 8px 0;
+        overflow: hidden;
 
-        @apply(--paper-input-container);
+        --paper-input-container-shared-input-style: {
+          position: relative; /* to make a stacking context */
+          outline: none;
+          box-shadow: none;
+          padding: 0;
+          width: 100%;
+          max-width: 100%;
+          background: transparent;
+          border: none;
+          color: var(--paper-input-container-input-color, var(--primary-text-color));
+          -webkit-appearance: none;
+          text-align: inherit;
+          vertical-align: bottom;
+
+          @apply --paper-font-subhead;
+        };
+
+        @apply --paper-input-container;
       }
 
       :host([inline]) {
@@ -2393,33 +2525,36 @@ lazy-pages, lazy-pages > * {
         pointer-events: none;
         opacity: 0.33;
 
-        @apply(--paper-input-container-disabled);
+        @apply --paper-input-container-disabled;
       }
 
       :host([hidden]) {
         display: none !important;
       }
 
+      [hidden] {
+        display: none !important;
+      }
+
       .floated-label-placeholder {
-        @apply(--paper-font-caption);
+        @apply --paper-font-caption;
       }
 
       .underline {
+        height: 2px;
         position: relative;
       }
 
       .focused-line {
-        @apply(--layout-fit);
-
-        background: var(--paper-input-container-focus-color, --primary-color);
-        height: 2px;
+        @apply --layout-fit;
+        border-bottom: 2px solid var(--paper-input-container-focus-color, var(--primary-color));
 
         -webkit-transform-origin: center center;
         transform-origin: center center;
         -webkit-transform: scale3d(0,1,1);
         transform: scale3d(0,1,1);
 
-        @apply(--paper-input-container-underline-focus);
+        @apply --paper-input-container-underline-focus;
       }
 
       .underline.is-highlighted .focused-line {
@@ -2428,73 +2563,67 @@ lazy-pages, lazy-pages > * {
         -webkit-transition: -webkit-transform 0.25s;
         transition: transform 0.25s;
 
-        @apply(--paper-transition-easing);
+        @apply --paper-transition-easing;
       }
 
       .underline.is-invalid .focused-line {
-        background: var(--paper-input-container-invalid-color, --error-color);
+        border-color: var(--paper-input-container-invalid-color, var(--error-color));
         -webkit-transform: none;
         transform: none;
         -webkit-transition: -webkit-transform 0.25s;
         transition: transform 0.25s;
 
-        @apply(--paper-transition-easing);
+        @apply --paper-transition-easing;
       }
 
       .unfocused-line {
-        @apply(--layout-fit);
-
-        background: var(--paper-input-container-color, --secondary-text-color);
-        height: 1px;
-
-        @apply(--paper-input-container-underline);
+        @apply --layout-fit;
+        border-bottom: 1px solid var(--paper-input-container-color, var(--secondary-text-color));
+        @apply --paper-input-container-underline;
       }
 
       :host([disabled]) .unfocused-line {
         border-bottom: 1px dashed;
-        border-color: var(--paper-input-container-color, --secondary-text-color);
-        background: transparent;
-
-        @apply(--paper-input-container-underline-disabled);
+        border-color: var(--paper-input-container-color, var(--secondary-text-color));
+        @apply --paper-input-container-underline-disabled;
       }
 
-      .label-and-input-container {
-        @apply(--layout-flex-auto);
-        @apply(--layout-relative);
-
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .input-content {
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
-
+      .input-wrapper {
+        @apply --layout-horizontal;
+        @apply --layout-center;
         position: relative;
       }
 
-      .input-content ::content label,
-      .input-content ::content .paper-input-label {
+      .input-content {
+        @apply --layout-flex-auto;
+        @apply --layout-relative;
+        max-width: 100%;
+      }
+
+      .input-content ::slotted(label),
+      .input-content ::slotted(.paper-input-label) {
         position: absolute;
         top: 0;
         right: 0;
         left: 0;
         width: 100%;
         font: inherit;
-        color: var(--paper-input-container-color, --secondary-text-color);
+        color: var(--paper-input-container-color, var(--secondary-text-color));
         -webkit-transition: -webkit-transform 0.25s, width 0.25s;
         transition: transform 0.25s, width 0.25s;
         -webkit-transform-origin: left top;
         transform-origin: left top;
+        /* Fix for safari not focusing 0-height date/time inputs with -webkit-apperance: none; */
+        min-height: 1px;
 
-        @apply(--paper-font-common-nowrap);
-        @apply(--paper-font-subhead);
-        @apply(--paper-input-container-label);
-        @apply(--paper-transition-easing);
+        @apply --paper-font-common-nowrap;
+        @apply --paper-font-subhead;
+        @apply --paper-input-container-label;
+        @apply --paper-transition-easing;
       }
 
-      .input-content.label-is-floating ::content label,
-      .input-content.label-is-floating ::content .paper-input-label {
+      .input-content.label-is-floating ::slotted(label),
+      .input-content.label-is-floating ::slotted(.paper-input-label) {
         -webkit-transform: translateY(-75%) scale(0.75);
         transform: translateY(-75%) scale(0.75);
 
@@ -2502,77 +2631,86 @@ lazy-pages, lazy-pages > * {
         original space now available */
         width: 133%;
 
-        @apply(--paper-input-container-label-floating);
+        @apply --paper-input-container-label-floating;
       }
 
-      :host-context([dir="rtl"]) .input-content.label-is-floating ::content label,
-      :host-context([dir="rtl"]) .input-content.label-is-floating ::content .paper-input-label {
-        /* TODO(noms): Figure out why leaving the width at 133% before the animation
-         * actually makes
-         * it wider on the right side, not left side, as you would expect in RTL */
-        width: 100%;
+      :host(:dir(rtl)) .input-content.label-is-floating ::slotted(label),
+      :host(:dir(rtl)) .input-content.label-is-floating ::slotted(.paper-input-label),
+      :host-context([dir="rtl"]) .input-content.label-is-floating ::slotted(label),
+      :host-context([dir="rtl"]) .input-content.label-is-floating ::slotted(.paper-input-label) {
         -webkit-transform-origin: right top;
         transform-origin: right top;
       }
 
-      .input-content.label-is-highlighted ::content label,
-      .input-content.label-is-highlighted ::content .paper-input-label {
-        color: var(--paper-input-container-focus-color, --primary-color);
+      .input-content.label-is-highlighted ::slotted(label),
+      .input-content.label-is-highlighted ::slotted(.paper-input-label) {
+        color: var(--paper-input-container-focus-color, var(--primary-color));
 
-        @apply(--paper-input-container-label-focus);
+        @apply --paper-input-container-label-focus;
       }
 
-      .input-content.is-invalid ::content label,
-      .input-content.is-invalid ::content .paper-input-label {
-        color: var(--paper-input-container-invalid-color, --error-color);
+      .input-content.is-invalid ::slotted(label),
+      .input-content.is-invalid ::slotted(.paper-input-label) {
+        color: var(--paper-input-container-invalid-color, var(--error-color));
       }
 
-      .input-content.label-is-hidden ::content label,
-      .input-content.label-is-hidden ::content .paper-input-label {
+      .input-content.label-is-hidden ::slotted(label),
+      .input-content.label-is-hidden ::slotted(.paper-input-label) {
         visibility: hidden;
       }
 
-      .input-content ::content input,
-      .input-content ::content textarea,
-      .input-content ::content iron-autogrow-textarea,
-      .input-content ::content .paper-input-input {
-        position: relative; /* to make a stacking context */
-        outline: none;
-        box-shadow: none;
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-        background: transparent;
-        border: none;
-        color: var(--paper-input-container-input-color, --primary-text-color);
-        -webkit-appearance: none;
-        text-align: inherit;
-        vertical-align: bottom;
-
-        @apply(--paper-font-subhead);
-        @apply(--paper-input-container-input);
+      .input-content ::slotted(iron-input) {
+        @apply --paper-input-container-shared-input-style;
       }
 
-      ::content [prefix] {
-        @apply(--paper-font-subhead);
-
-        @apply(--paper-input-prefix);
-        @apply(--layout-flex-none);
+      .input-content ::slotted(input),
+      .input-content ::slotted(textarea),
+      .input-content ::slotted(iron-autogrow-textarea),
+      .input-content ::slotted(.paper-input-input) {
+        @apply --paper-input-container-shared-input-style;
+        @apply --paper-input-container-input;
       }
 
-      ::content [suffix] {
-        @apply(--paper-font-subhead);
+      .input-content ::slotted(input)::-webkit-outer-spin-button,
+      .input-content ::slotted(input)::-webkit-inner-spin-button {
+        @apply --paper-input-container-input-webkit-spinner;
+      }
 
-        @apply(--paper-input-suffix);
-        @apply(--layout-flex-none);
+      .input-content.focused ::slotted(input),
+      .input-content.focused ::slotted(textarea),
+      .input-content.focused ::slotted(iron-autogrow-textarea),
+      .input-content.focused ::slotted(.paper-input-input) {
+        @apply --paper-input-container-input-focus;
+      }
+
+      .input-content.is-invalid ::slotted(input),
+      .input-content.is-invalid ::slotted(textarea),
+      .input-content.is-invalid ::slotted(iron-autogrow-textarea),
+      .input-content.is-invalid ::slotted(.paper-input-input) {
+        @apply --paper-input-container-input-invalid;
+      }
+
+      .prefix ::slotted(*) {
+        display: inline-block;
+        @apply --paper-font-subhead;
+        @apply --layout-flex-none;
+        @apply --paper-input-prefix;
+      }
+
+      .suffix ::slotted(*) {
+        display: inline-block;
+        @apply --paper-font-subhead;
+        @apply --layout-flex-none;
+
+        @apply --paper-input-suffix;
       }
 
       /* Firefox sets a min-width on the input, which can cause layout issues */
-      .input-content ::content input {
+      .input-content ::slotted(input) {
         min-width: 0;
       }
 
-      .input-content ::content textarea {
+      .input-content ::slotted(textarea) {
         resize: none;
       }
 
@@ -2580,27 +2718,26 @@ lazy-pages, lazy-pages > * {
         position: relative;
       }
 
-      .add-on-content.is-invalid ::content * {
-        color: var(--paper-input-container-invalid-color, --error-color);
+      .add-on-content.is-invalid ::slotted(*) {
+        color: var(--paper-input-container-invalid-color, var(--error-color));
       }
 
-      .add-on-content.is-highlighted ::content * {
-        color: var(--paper-input-container-focus-color, --primary-color);
+      .add-on-content.is-highlighted ::slotted(*) {
+        color: var(--paper-input-container-focus-color, var(--primary-color));
       }
     </style>
 
-    <template is="dom-if" if="[[!noLabelFloat]]">
-      <div class="floated-label-placeholder" aria-hidden="true">&nbsp;</div>
-    </template>
+    <div class="floated-label-placeholder" aria-hidden="true" hidden="[[noLabelFloat]]">&nbsp;</div>
 
-    <div class$="[[_computeInputContentClass(noLabelFloat,alwaysFloatLabel,focused,invalid,_inputHasContent)]]">
-      <content select="[prefix]" id="prefix"></content>
+    <div class="input-wrapper">
+      <span class="prefix"><slot name="prefix"></slot></span>
 
-      <div class="label-and-input-container" id="labelAndInputContainer">
-        <content select=":not([add-on]):not([prefix]):not([suffix])"></content>
+      <div class$="[[_computeInputContentClass(noLabelFloat,alwaysFloatLabel,focused,invalid,_inputHasContent)]]" id="labelAndInputContainer">
+        <slot name="label"></slot>
+        <slot name="input"></slot>
       </div>
 
-      <content select="[suffix]"></content>
+      <span class="suffix"><slot name="suffix"></slot></span>
     </div>
 
     <div class$="[[_computeUnderlineClass(focused,invalid)]]">
@@ -2609,7 +2746,7 @@ lazy-pages, lazy-pages > * {
     </div>
 
     <div class$="[[_computeAddOnContentClass(focused,invalid)]]">
-      <content id="addOnContent" select="[add-on]"></content>
+      <slot name="add-on"></slot>
     </div>
   </template>
 </dom-module>
@@ -2621,10 +2758,10 @@ lazy-pages, lazy-pages > * {
         display: inline-block;
         visibility: hidden;
 
-        color: var(--paper-input-container-invalid-color, --error-color);
+        color: var(--paper-input-container-invalid-color, var(--error-color));
 
-        @apply(--paper-font-caption);
-        @apply(--paper-input-error);
+        @apply --paper-font-caption;
+        @apply --paper-input-error;
         position: absolute;
         left:0;
         right:0;
@@ -2635,7 +2772,7 @@ lazy-pages, lazy-pages > * {
       };
     </style>
 
-    <content></content>
+    <slot></slot>
   </template>
 </dom-module>
 
@@ -2654,20 +2791,63 @@ lazy-pages, lazy-pages > * {
         display: none !important;
       }
 
+      input {
+        position: relative; /* to make a stacking context */
+        outline: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        background: transparent;
+        border: none;
+        color: var(--paper-input-container-input-color, var(--primary-text-color));
+        -webkit-appearance: none;
+        text-align: inherit;
+        vertical-align: bottom;
+
+        /* Firefox sets a min-width on the input, which can cause layout issues */
+        min-width: 0;
+
+        @apply --paper-font-subhead;
+        @apply --paper-input-container-input;
+      }
+
+      input:disabled {
+        @apply --paper-input-container-input-disabled;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        @apply --paper-input-container-input-webkit-spinner;
+      }
+
+      input::-webkit-clear-button {
+        @apply --paper-input-container-input-webkit-clear;
+      }
+
       input::-webkit-input-placeholder {
-        color: var(--paper-input-container-color, --secondary-text-color);
+        color: var(--paper-input-container-color, var(--secondary-text-color));
       }
 
       input:-moz-placeholder {
-        color: var(--paper-input-container-color, --secondary-text-color);
+        color: var(--paper-input-container-color, var(--secondary-text-color));
       }
 
       input::-moz-placeholder {
-        color: var(--paper-input-container-color, --secondary-text-color);
+        color: var(--paper-input-container-color, var(--secondary-text-color));
+      }
+
+      input::-ms-clear {
+        @apply --paper-input-container-ms-clear;
+      }
+
+      input::-ms-reveal {
+        @apply --paper-input-container-ms-reveal;
       }
 
       input:-ms-input-placeholder {
-        color: var(--paper-input-container-color, --secondary-text-color);
+        color: var(--paper-input-container-color, var(--secondary-text-color));
       }
 
       label {
@@ -2675,26 +2855,39 @@ lazy-pages, lazy-pages > * {
       }
     </style>
 
-    <paper-input-container no-label-float="[[noLabelFloat]]" always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]" auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]">
+    <paper-input-container id="container" no-label-float="[[noLabelFloat]]" always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]" auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]">
 
-      <content select="[prefix]"></content>
+      <slot name="prefix" slot="prefix"></slot>
 
-      <label hidden$="[[!label]]" aria-hidden="true" for="input">[[label]]</label>
+      <label hidden$="[[!label]]" aria-hidden="true" for="input" slot="label">[[label]]</label>
 
-      <input is="iron-input" id="input" aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" disabled$="[[disabled]]" title$="[[title]]" bind-value="{{value}}" invalid="{{invalid}}" prevent-invalid-input="[[preventInvalidInput]]" allowed-pattern="[[allowedPattern]]" validator="[[validator]]" type$="[[type]]" pattern$="[[pattern]]" required$="[[required]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" min$="[[min]]" max$="[[max]]" step$="[[step]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" list$="[[list]]" size$="[[size]]" autocapitalize$="[[autocapitalize]]" autocorrect$="[[autocorrect]]" on-change="_onChange" tabindex$="[[tabindex]]" autosave$="[[autosave]]" results$="[[results]]" accept$="[[accept]]" multiple$="[[multiple]]">
+      <span id="template-placeholder"></span>
 
-      <content select="[suffix]"></content>
+      <slot name="suffix" slot="suffix"></slot>
 
       <template is="dom-if" if="[[errorMessage]]">
-        <paper-input-error aria-live="assertive">[[errorMessage]]</paper-input-error>
+        <paper-input-error aria-live="assertive" slot="add-on">[[errorMessage]]</paper-input-error>
       </template>
 
       <template is="dom-if" if="[[charCounter]]">
-        <paper-input-char-counter></paper-input-char-counter>
+        <paper-input-char-counter slot="add-on"></paper-input-char-counter>
       </template>
 
     </paper-input-container>
   </template>
+
+  
+  <template id="v0">
+    <input is="iron-input" id="input" slot="input" aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" disabled$="[[disabled]]" title$="[[title]]" bind-value="{{value}}" invalid="{{invalid}}" prevent-invalid-input="[[preventInvalidInput]]" allowed-pattern="[[allowedPattern]]" validator="[[validator]]" type$="[[type]]" pattern$="[[pattern]]" required$="[[required]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" min$="[[min]]" max$="[[max]]" step$="[[step]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" list$="[[list]]" size$="[[size]]" autocapitalize$="[[autocapitalize]]" autocorrect$="[[autocorrect]]" on-change="_onChange" tabindex$="[[tabIndex]]" autosave$="[[autosave]]" results$="[[results]]" accept$="[[accept]]" multiple$="[[multiple]]">
+  </template>
+
+  <template id="v1">
+    
+    <iron-input bind-value="{{value}}" id="input" slot="input" maxlength$="[[maxlength]]" allowed-pattern="[[allowedPattern]]" invalid="{{invalid}}" validator="[[validator]]">
+      <input id="nativeInput" aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" disabled$="[[disabled]]" title$="[[title]]" type$="[[type]]" pattern$="[[pattern]]" required$="[[required]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" min$="[[min]]" max$="[[max]]" step$="[[step]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" list$="[[list]]" size$="[[size]]" autocapitalize$="[[autocapitalize]]" autocorrect$="[[autocorrect]]" on-change="_onChange" tabindex$="[[tabIndex]]" autosave$="[[autosave]]" results$="[[results]]" accept$="[[accept]]" multiple$="[[multiple]]">
+    </iron-input>
+  </template>
+
 </dom-module>
 
 <dom-module id="iron-dropdown" assetpath="/bower_components/iron-dropdown/">
@@ -2704,17 +2897,17 @@ lazy-pages, lazy-pages > * {
         position: fixed;
       }
 
-      #contentWrapper ::content > * {
+      #contentWrapper ::slotted(*) {
         overflow: auto;
       }
 
-      #contentWrapper.animating ::content > * {
+      #contentWrapper.animating ::slotted(*) {
         overflow: hidden;
       }
     </style>
 
     <div id="contentWrapper">
-      <content id="content" select=".dropdown-content"></content>
+      <slot id="content" name="dropdown-content"></slot>
     </div>
   </template>
 
@@ -2730,28 +2923,28 @@ lazy-pages, lazy-pages > * {
         padding: 8px;
         outline: none;
 
-        @apply(--paper-menu-button);
+        @apply --paper-menu-button;
       }
 
       :host([disabled]) {
         cursor: auto;
         color: var(--disabled-text-color);
 
-        @apply(--paper-menu-button-disabled);
+        @apply --paper-menu-button-disabled;
       }
 
       iron-dropdown {
-        @apply(--paper-menu-button-dropdown);
+        @apply --paper-menu-button-dropdown;
       }
 
       .dropdown-content {
-        @apply(--shadow-elevation-2dp);
+        @apply --shadow-elevation-2dp;
 
         position: relative;
         border-radius: 2px;
-        background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);
+        background-color: var(--paper-menu-button-dropdown-background, var(--primary-background-color));
 
-        @apply(--paper-menu-button-content);
+        @apply --paper-menu-button-content;
       }
 
       :host([vertical-align="top"]) .dropdown-content {
@@ -2765,19 +2958,19 @@ lazy-pages, lazy-pages > * {
         margin-bottom: -10px;
         margin-top: 20px;
       }
-      
+
       #trigger {
         cursor: pointer;
       }
     </style>
 
     <div id="trigger" on-tap="toggle">
-      <content select=".dropdown-trigger"></content>
+      <slot name="dropdown-trigger"></slot>
     </div>
 
     <iron-dropdown id="dropdown" opened="{{opened}}" horizontal-align="[[horizontalAlign]]" vertical-align="[[verticalAlign]]" dynamic-align="[[dynamicAlign]]" horizontal-offset="[[horizontalOffset]]" vertical-offset="[[verticalOffset]]" no-overlap="[[noOverlap]]" open-animation-config="[[openAnimationConfig]]" close-animation-config="[[closeAnimationConfig]]" no-animations="[[noAnimations]]" focus-target="[[_dropdownContent]]" allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]" on-iron-overlay-canceled="__onIronOverlayCanceled">
-      <div class="dropdown-content">
-        <content id="content" select=".dropdown-content"></content>
+      <div slot="dropdown-content" class="dropdown-content">
+        <slot id="content" name="dropdown-content"></slot>
       </div>
     </iron-dropdown>
   </template>
@@ -2811,11 +3004,11 @@ lazy-pages, lazy-pages > * {
           cursor: pointer;
         };
 
-        @apply(--paper-dropdown-menu);
+        @apply --paper-dropdown-menu;
       }
 
       :host([disabled]) {
-        @apply(--paper-dropdown-menu-disabled);
+        @apply --paper-dropdown-menu-disabled;
       }
 
       :host([noink]) paper-ripple {
@@ -2832,45 +3025,45 @@ lazy-pages, lazy-pages > * {
         bottom: 8px;
         right: 0px;
 
-        @apply(--paper-dropdown-menu-ripple);
+        @apply --paper-dropdown-menu-ripple;
       }
 
       paper-menu-button {
         display: block;
         padding: 0;
 
-        @apply(--paper-dropdown-menu-button);
+        @apply --paper-dropdown-menu-button;
       }
 
       paper-input {
-        @apply(--paper-dropdown-menu-input);
+        @apply --paper-dropdown-menu-input;
       }
 
       iron-icon {
         color: var(--disabled-text-color);
 
-        @apply(--paper-dropdown-menu-icon);
+        @apply --paper-dropdown-menu-icon;
       }
     </style>
   </template>
 </dom-module>
-
-
 <dom-module id="paper-dropdown-menu" assetpath="/bower_components/paper-dropdown-menu/">
   <template>
     <style include="paper-dropdown-menu-shared-styles"></style>
 
     
     <span role="button"></span>
-    <paper-menu-button id="menuButton" vertical-align="[[verticalAlign]]" horizontal-align="[[horizontalAlign]]" dynamic-align="[[dynamicAlign]]" vertical-offset="[[_computeMenuVerticalOffset(noLabelFloat)]]" disabled="[[disabled]]" no-animations="[[noAnimations]]" on-iron-select="_onIronSelect" on-iron-deselect="_onIronDeselect" opened="{{opened}}" close-on-activate="" allow-outside-scroll="[[allowOutsideScroll]]">
-      <div class="dropdown-trigger">
+    <paper-menu-button id="menuButton" vertical-align="[[verticalAlign]]" horizontal-align="[[horizontalAlign]]" dynamic-align="[[dynamicAlign]]" vertical-offset="[[_computeMenuVerticalOffset(noLabelFloat)]]" disabled="[[disabled]]" no-animations="[[noAnimations]]" on-iron-select="_onIronSelect" on-iron-deselect="_onIronDeselect" opened="{{opened}}" close-on-activate="" allow-outside-scroll="[[allowOutsideScroll]]" restore-focus-on-close="[[restoreFocusOnClose]]">
+      
+      <div class="dropdown-trigger" slot="dropdown-trigger">
         <paper-ripple></paper-ripple>
         
         <paper-input type="text" invalid="[[invalid]]" readonly="" disabled="[[disabled]]" value="[[selectedItemLabel]]" placeholder="[[placeholder]]" error-message="[[errorMessage]]" always-float-label="[[alwaysFloatLabel]]" no-label-float="[[noLabelFloat]]" label="[[label]]">
-          <iron-icon icon="paper-dropdown-menu:arrow-drop-down" suffix=""></iron-icon>
+          
+          <iron-icon icon="paper-dropdown-menu:arrow-drop-down" suffix="" slot="suffix"></iron-icon>
         </paper-input>
       </div>
-      <content id="content" select=".dropdown-content"></content>
+      <slot id="content" name="dropdown-content" slot="dropdown-content"></slot>
     </paper-menu-button>
   </template>
 
@@ -2903,24 +3096,28 @@ lazy-pages, lazy-pages > * {
         /* Because of polymer/2558, this style has lower specificity than * */
         box-sizing: border-box !important;
 
-        @apply(--paper-icon-button);
+        @apply --paper-icon-button;
       }
 
       :host #ink {
-        color: var(--paper-icon-button-ink-color, --primary-text-color);
+        color: var(--paper-icon-button-ink-color, var(--primary-text-color));
         opacity: 0.6;
       }
 
       :host([disabled]) {
-        color: var(--paper-icon-button-disabled-text, --disabled-text-color);
+        color: var(--paper-icon-button-disabled-text, var(--disabled-text-color));
         pointer-events: none;
         cursor: auto;
 
-        @apply(--paper-icon-button-disabled);
+        @apply --paper-icon-button-disabled;
+      }
+
+      :host([hidden]) {
+        display: none !important;
       }
 
       :host(:hover) {
-        @apply(--paper-icon-button-hover);
+        @apply --paper-icon-button-hover;
       }
 
       iron-icon {
@@ -2933,6 +3130,8 @@ lazy-pages, lazy-pages > * {
   </template>
 
   </dom-module>
+
+
 
 
 <dom-module id="iron-autogrow-textarea" assetpath="/bower_components/iron-autogrow-textarea/">
@@ -2952,10 +3151,11 @@ lazy-pages, lazy-pages > * {
       .mirror-text {
         visibility: hidden;
         word-wrap: break-word;
+        @apply --iron-autogrow-textarea;
       }
 
       .fit {
-        @apply(--layout-fit);
+        @apply --layout-fit;
       }
 
       textarea {
@@ -2972,27 +3172,23 @@ lazy-pages, lazy-pages > * {
         font-family: inherit;
         line-height: inherit;
         text-align: inherit;
-        @apply(--iron-autogrow-textarea);
-      }
-
-      ::content textarea:invalid {
-        box-shadow: none;
+        @apply --iron-autogrow-textarea;
       }
 
       textarea::-webkit-input-placeholder {
-        @apply(--iron-autogrow-textarea-placeholder);
+        @apply --iron-autogrow-textarea-placeholder;
       }
 
       textarea:-moz-placeholder {
-        @apply(--iron-autogrow-textarea-placeholder);
+        @apply --iron-autogrow-textarea-placeholder;
       }
 
       textarea::-moz-placeholder {
-        @apply(--iron-autogrow-textarea-placeholder);
+        @apply --iron-autogrow-textarea-placeholder;
       }
 
       textarea:-ms-input-placeholder {
-        @apply(--iron-autogrow-textarea-placeholder);
+        @apply --iron-autogrow-textarea-placeholder;
       }
     </style>
 
@@ -3002,7 +3198,7 @@ lazy-pages, lazy-pages > * {
 
     
     <div class="textarea-container fit">
-      <textarea id="textarea" name$="[[name]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" required$="[[required]]" disabled$="[[disabled]]" rows$="[[rows]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]"></textarea>
+      <textarea id="textarea" name$="[[name]]" aria-label$="[[label]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" required$="[[required]]" disabled$="[[disabled]]" rows$="[[rows]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]"></textarea>
     </div>
   </template>
 </dom-module>
@@ -3025,16 +3221,16 @@ lazy-pages, lazy-pages > * {
 
     <paper-input-container no-label-float$="[[noLabelFloat]]" always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]" auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]">
 
-      <label hidden$="[[!label]]" aria-hidden="true">[[label]]</label>
+      <label hidden$="[[!label]]" aria-hidden="true" for="input" slot="label">[[label]]</label>
 
-      <iron-autogrow-textarea id="input" class="paper-input-input" bind-value="{{value}}" invalid="{{invalid}}" disabled$="[[disabled]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" required$="[[required]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" autocapitalize$="[[autocapitalize]]" rows$="[[rows]]" max-rows$="[[maxRows]]" on-change="_onChange"></iron-autogrow-textarea>
+      <iron-autogrow-textarea id="input" class="paper-input-input" slot="input" aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" bind-value="{{value}}" invalid="{{invalid}}" validator$="[[validator]]" disabled$="[[disabled]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" required$="[[required]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" autocapitalize$="[[autocapitalize]]" rows$="[[rows]]" max-rows$="[[maxRows]]" on-change="_onChange"></iron-autogrow-textarea>
 
       <template is="dom-if" if="[[errorMessage]]">
-        <paper-input-error>[[errorMessage]]</paper-input-error>
+        <paper-input-error aria-live="assertive" slot="add-on">[[errorMessage]]</paper-input-error>
       </template>
 
       <template is="dom-if" if="[[charCounter]]">
-        <paper-input-char-counter></paper-input-char-counter>
+        <paper-input-char-counter slot="add-on"></paper-input-char-counter>
       </template>
 
     </paper-input-container>
@@ -3052,7 +3248,7 @@ lazy-pages, lazy-pages > * {
       }
 
       .paper-item {
-        @apply(--paper-font-subhead);
+        @apply --paper-font-subhead;
         border:none;
         outline: none;
         background: white;
@@ -3067,63 +3263,61 @@ lazy-pages, lazy-pages > * {
       :host(.iron-selected), .paper-item.iron-selected {
         font-weight: var(--paper-item-selected-weight, bold);
 
-        @apply(--paper-item-selected);
+        @apply --paper-item-selected;
       }
 
       :host([disabled]), .paper-item[disabled] {
-        color: var(--paper-item-disabled-color, --disabled-text-color);
+        color: var(--paper-item-disabled-color, var(--disabled-text-color));
 
-        @apply(--paper-item-disabled);
+        @apply --paper-item-disabled;
       }
 
       :host(:focus), .paper-item:focus {
         position: relative;
         outline: 0;
 
-        @apply(--paper-item-focused);
+        @apply --paper-item-focused;
       }
 
       :host(:focus):before, .paper-item:focus:before {
-        @apply(--layout-fit);
+        @apply --layout-fit;
 
         background: currentColor;
         content: '';
         opacity: var(--dark-divider-opacity);
         pointer-events: none;
 
-        @apply(--paper-item-focused-before);
+        @apply --paper-item-focused-before;
       }
     </style>
   </template>
 </dom-module>
-
-
 <dom-module id="paper-icon-item" assetpath="/bower_components/paper-item/">
   <template>
     <style include="paper-item-shared-styles"></style>
     <style>
       :host {
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
-        @apply(--paper-font-subhead);
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --paper-font-subhead;
 
-        @apply(--paper-item);
-        @apply(--paper-icon-item);
+        @apply --paper-item;
+        @apply --paper-icon-item;
       }
 
       .content-icon {
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
+        @apply --layout-horizontal;
+        @apply --layout-center;
 
         width: var(--paper-item-icon-width, 56px);
-        @apply(--paper-item-icon);
+        @apply --paper-item-icon;
       }
     </style>
 
     <div id="contentIcon" class="content-icon">
-      <content select="[item-icon]"></content>
+      <slot name="item-icon"></slot>
     </div>
-    <content></content>
+    <slot></slot>
   </template>
 
   </dom-module>
@@ -3134,18 +3328,19 @@ lazy-pages, lazy-pages > * {
     <style include="paper-item-shared-styles"></style>
     <style>
       :host {
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
-        @apply(--paper-font-subhead);
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --paper-font-subhead;
 
-        @apply(--paper-item);
+        @apply --paper-item;
       }
     </style>
-
-    <content></content>
+    <slot></slot>
   </template>
 
   </dom-module>
+
+
 <dom-module id="paper-listbox" assetpath="/bower_components/paper-listbox/">
   <template>
     <style>
@@ -3164,6 +3359,8 @@ lazy-pages, lazy-pages > * {
   </template>
 
   </dom-module>
+
+
 <dom-module id="paper-menu-shared-styles" assetpath="/bower_components/paper-menu/">
   <template>
     <style>
@@ -3201,8 +3398,6 @@ lazy-pages, lazy-pages > * {
     </style>
   </template>
 </dom-module>
-
-
 <dom-module id="paper-menu" assetpath="/bower_components/paper-menu/">
   <template>
     <style include="paper-menu-shared-styles"></style>
@@ -3224,6 +3419,8 @@ lazy-pages, lazy-pages > * {
   </template>
 
   </dom-module>
+
+
 <dom-module id="paper-progress" assetpath="/bower_components/paper-progress/">
   <template>
     <style>
@@ -3398,35 +3595,28 @@ lazy-pages, lazy-pages > * {
       :host {
         --calculated-paper-toolbar-height: var(--paper-toolbar-height, 64px);
         --calculated-paper-toolbar-sm-height: var(--paper-toolbar-sm-height, 56px);
-
-        /* technical */
         display: block;
         position: relative;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
-
-        /* size */
         height: var(--calculated-paper-toolbar-height);
-
-        background: var(--paper-toolbar-background, --primary-color);
-        color: var(--paper-toolbar-color, --dark-theme-text-color);
-
-        @apply(--paper-toolbar);
+        background: var(--paper-toolbar-background, var(--primary-color));
+        color: var(--paper-toolbar-color, var(--dark-theme-text-color));
+        @apply --paper-toolbar;
       }
 
       :host(.animate) {
-        /* transition */
         transition: var(--paper-toolbar-transition, height 0.18s ease-in);
       }
 
       :host(.medium-tall) {
         height: calc(var(--calculated-paper-toolbar-height) * 2);
-        @apply(--paper-toolbar-medium);
+        @apply --paper-toolbar-medium;
       }
 
       :host(.tall) {
         height: calc(var(--calculated-paper-toolbar-height) * 3);
-        @apply(--paper-toolbar-tall);
+        @apply --paper-toolbar-tall;
       }
 
       .toolbar-tools {
@@ -3434,9 +3624,9 @@ lazy-pages, lazy-pages > * {
         height: var(--calculated-paper-toolbar-height);
         padding: 0 16px;
         pointer-events: none;
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
-        @apply(--paper-toolbar-content);
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --paper-toolbar-content;
       }
 
       /*
@@ -3494,13 +3684,12 @@ lazy-pages, lazy-pages > * {
        * absorb events. All children must have pointer events re-enabled to work as
        * expected.
        */
-      .toolbar-tools > ::content > *:not([disabled]) {
+      .toolbar-tools > ::slotted(*:not([disabled])) {
         pointer-events: auto;
       }
 
-      .toolbar-tools > ::content .title {
-        @apply(--paper-font-common-base);
-
+      .toolbar-tools > ::slotted(.title) {
+        @apply --paper-font-common-base;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -3508,15 +3697,14 @@ lazy-pages, lazy-pages > * {
         font-weight: 400;
         line-height: 1;
         pointer-events: none;
-
-        @apply(--layout-flex);
+        @apply --layout-flex;
       }
 
-      .toolbar-tools > ::content > .title {
+      .toolbar-tools > ::slotted(.title) {
         margin-left: 56px;
       }
 
-      .toolbar-tools > ::content > paper-icon-button + .title {
+      .toolbar-tools > ::slotted(paper-icon-button + .title) {
         margin-left: 0;
       }
 
@@ -3524,15 +3712,15 @@ lazy-pages, lazy-pages > * {
        * The --paper-toolbar-title mixin is applied here instead of above to
        * fix the issue with margin-left being ignored due to css ordering.
        */
-      .toolbar-tools > ::content .title {
-        @apply(--paper-toolbar-title);
+      .toolbar-tools > ::slotted(.title) {
+        @apply --paper-toolbar-title;
       }
 
-      .toolbar-tools > ::content paper-icon-button[icon=menu] {
+      .toolbar-tools > ::slotted(paper-icon-button[icon=menu]) {
         margin-right: 24px;
       }
 
-      .toolbar-tools > ::content > .fit {
+      .toolbar-tools > ::slotted(.fit) {
         position: absolute;
         top: auto;
         right: 0;
@@ -3546,36 +3734,36 @@ lazy-pages, lazy-pages > * {
        * /deep/ create our own.
        */
       .start-justified {
-        @apply(--layout-start-justified);
+        @apply --layout-start-justified;
       }
 
       .center-justified {
-        @apply(--layout-center-justified);
+        @apply --layout-center-justified;
       }
 
       .end-justified {
-        @apply(--layout-end-justified);
+        @apply --layout-end-justified;
       }
 
       .around-justified {
-        @apply(--layout-around-justified);
+        @apply --layout-around-justified;
       }
 
       .justified {
-        @apply(--layout-justified);
+        @apply --layout-justified;
       }
     </style>
 
     <div id="topBar" class$="toolbar-tools [[_computeBarExtraClasses(justify)]]">
-      <content select=":not(.middle):not(.bottom)"></content>
+      <slot name="top"></slot>
     </div>
 
     <div id="middleBar" class$="toolbar-tools [[_computeBarExtraClasses(middleJustify)]]">
-      <content select=".middle"></content>
+      <slot name="middle"></slot>
     </div>
 
     <div id="bottomBar" class$="toolbar-tools [[_computeBarExtraClasses(bottomJustify)]]">
-      <content select=".bottom"></content>
+      <slot name="bottom"></slot>
     </div>
   </template>
 
@@ -4201,8 +4389,10 @@ lazy-pages, lazy-pages > * {
         </div>
       </div>
       <div id="buttons">
-        <a href="https://www.nwhacks.io"><paper-button class="register">this is
-            the old site. Looking for nwHacks 2017?</paper-button></a>
+        <a href="https://www.nwhacks.io"><paper-button class="register">Looking for nwHacks 2018?</paper-button></a>
+        <br>
+        <br>
+        <a href="https://2017.nwhacks.io"><paper-button class="register">Looking for nwHacks 2017?</paper-button></a>
         <br>
         <br>
         <a href="https://nwhacks2016.devpost.com/submissions"><paper-button class="button">submitted hacks</paper-button></a>
